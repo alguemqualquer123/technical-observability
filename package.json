@@ -1,0 +1,18 @@
+{
+  "name": "teste-tecnico-incidentes",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "pnpm --filter @teste-tecnico/api dev",
+    "dev:web": "pnpm --filter @teste-tecnico/web dev",
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "packageManager": "pnpm@10.22.0"
+}

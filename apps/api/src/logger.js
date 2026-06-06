@@ -1,0 +1,9 @@
+import pino from "pino";
+
+export function createLogger() {
+  return pino({
+    level: process.env.LOG_LEVEL || "info",
+    base: undefined,
+    timestamp: () => `,"timestamp":"${new Date().toISOString()}"`
+  });
+}
