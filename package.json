@@ -8,10 +8,14 @@
   ],
   "scripts": {
     "dev:api": "pnpm --filter @teste-tecnico/api dev",
+    "dev:api:js": "pnpm --filter @teste-tecnico/api dev",
+    "dev:api:java": "mvn -f apps/api-java/pom.xml spring-boot:run",
     "dev:web": "pnpm --filter @teste-tecnico/web dev",
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
+    "build:api:java": "mvn -f apps/api-java/pom.xml package",
     "test": "pnpm -r test",
+    "test:api:java": "mvn -f apps/api-java/pom.xml test",
     "lint": "pnpm -r lint"
   },
   "packageManager": "pnpm@10.22.0"

@@ -3,11 +3,16 @@
 Projeto full stack criado para atender ao desafio proposto, cobrindo:
 
 - front-end funcional com cadastro e acompanhamento de incidentes;
-- API REST documentada;
+- API REST para gestão de incidentes;
 - persistência local em SQLite;
 - logs mínimos para apoio ao diagnóstico;
 - testes dos cenários principais;
 - análise técnica de um incidente recorrente.
+
+O backend possui duas implementacoes da API:
+
+- Java
+- JavaScript
 
 ## Visão geral
 
@@ -22,20 +27,18 @@ O domínio escolhido foi um pequeno painel de gestão de incidentes operacionais
 ## Stack
 
 - Front-end: React + Vite
-- Back-end: Node.js + Express
-- Persistência: SQLite local via `sql.js`
+- Back-end Java: Spring Boot + JdbcTemplate + SQLite
+- Back-end JavaScript: Node.js + Express + `sql.js`
+- Persistência: SQLite local
 - Testes: Vitest, Supertest e Testing Library
-- Documentação da API: Swagger UI
 
 ## Estrutura
 
 ```text
 apps/
-  api/   -> API REST, persistência e testes de integração
-  web/   -> interface React e testes de interface
-docs/
-  incident-analysis.md
-  technical-note.md
+  api/       -> backend em JavaScript
+  api-java/  -> backend em Java
+  web/       -> interface React e testes de interface
 ```
 
 ## Como executar
@@ -44,6 +47,8 @@ docs/
 
 - Node.js 20+
 - pnpm 10+
+- Java 17+
+- Maven 3.9+
 
 ### Instalação
 
@@ -51,7 +56,7 @@ docs/
 pnpm install
 ```
 
-### Subindo a API
+### Subindo o backend JavaScript
 
 ```bash
 pnpm dev:api
@@ -59,7 +64,13 @@ pnpm dev:api
 
 API em `http://localhost:3333`
 
-Documentação Swagger em `http://localhost:3333/docs`
+### Subindo o backend Java
+
+```bash
+pnpm dev:api:java
+```
+
+API em `http://localhost:3334`
 
 ### Subindo o front-end
 
@@ -79,6 +90,7 @@ Use o arquivo `.env.example` como referência.
 
 - `PORT`: porta da API
 - `CORS_ORIGIN`: origem permitida para o front-end
+- `APP_DATABASE_FILE`: caminho do arquivo SQLite do backend Java
 
 ### Front-end
 
@@ -156,22 +168,29 @@ Cada request recebe `x-request-id`, útil para correlação básica em análise 
 
 ## Testes
 
-Rodar todos os testes:
+Rodar os testes do backend JavaScript e do front-end:
 
 ```bash
 pnpm test
 ```
 
-Rodar build dos workspaces:
+Rodar os testes do backend Java:
+
+```bash
+pnpm test:api:java
+```
+
+Rodar build dos workspaces JavaScript:
 
 ```bash
 pnpm build
 ```
 
-## Documentos complementares
+Gerar build do backend Java:
 
-- Análise do incidente: [docs/incident-analysis.md](./docs/incident-analysis.md)
-- Nota técnica: [docs/technical-note.md](./docs/technical-note.md)
+```bash
+pnpm build:api:java
+```
 
 ## Próximos passos naturais
 

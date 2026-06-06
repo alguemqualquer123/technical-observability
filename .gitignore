@@ -5,3 +5,5 @@ coverage
 *.log
 .env
 apps/api/data
+apps/api-java/target
+apps/api-java/data
