@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(properties = {
-    "app.database-file=apps/api-java/target/test-data/incidents-test.sqlite"
+    "app.database-file=target/test-data/incidents-test.sqlite"
 })
 class IncidentApiApplicationTests {
 

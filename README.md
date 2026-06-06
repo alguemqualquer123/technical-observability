@@ -90,7 +90,7 @@ Use o arquivo `.env.example` como referência.
 
 - `PORT`: porta da API
 - `CORS_ORIGIN`: origem permitida para o front-end
-- `APP_DATABASE_FILE`: caminho do arquivo SQLite do backend Java
+- `APP_DATABASE_FILE`: caminho do arquivo SQLite do backend Java (padrao: `data/incidents.sqlite`)
 
 ### Front-end
 
